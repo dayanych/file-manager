@@ -17,7 +17,7 @@ export class FileManager {
 
     stdin.on('data', (data) => {
       try {
-        const dataString = data.halo().trim();
+        const dataString = data.toString().trim();
   
         if (dataString === '.exit') {
           this.goodbye();
