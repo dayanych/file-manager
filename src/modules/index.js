@@ -7,6 +7,7 @@ import { rn } from './rn.js';
 import { cp } from './cp.js';
 import { mv } from './mv.js';
 import { rm } from './rm.js';
+import { osFileManager } from './os.js';
 import { getUserName } from '../helpers/get-username.js';
 
 export {
@@ -19,5 +20,6 @@ export {
   cp,
   mv,
   rm,
+  osFileManager,
   getUserName,
 };

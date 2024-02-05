@@ -11,6 +11,7 @@ import {
   cp,
   mv,
   rm,
+  osFileManager,
 } from './modules/index.js';
 const {stdin, stdout} = process;
 
@@ -83,15 +84,8 @@ export class FileManager {
       case 'rm':
         await rm(this.path, firstArgument);
         break;
-      case 'os --EOL':
-        break;
-      case 'os --cpus':
-        break;
-      case 'os --homedir':
-        break;
-      case 'os --username':
-        break;
-      case 'os --architecture':
+      case 'os':
+        osFileManager(firstArgument);
         break;
       case 'commpress':
         break;
