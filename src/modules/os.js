@@ -19,6 +19,7 @@ export const osFileManager = (data) => {
       stdout.write(JSON.stringify(eol) + '\n');
       break;
     case '--cpus':
+      console.log('Amount of CPUS: ' + cpus.length);
       console.dir(cpuCores);
       break;
     case '--homedir':
