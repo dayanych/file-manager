@@ -7,13 +7,19 @@ export const osFileManager = (data) => {
   const homedir = os.homedir();
   const username = os.userInfo().username;
   const arch = os.arch();
+
+  const cpuCores = cpus.map((cpu) => ({
+      model: cpu.model,
+      speed: `${cpu.speed / 1000} GHz`,
+  }));
+
   switch (data) {
     case '--EOL':
     case '--eol':
       stdout.write(JSON.stringify(eol) + '\n');
       break;
     case '--cpus':
-      stdout.write(JSON.stringify(cpus) + '\n');
+      console.dir(cpuCores);
       break;
     case '--homedir':
       stdout.write(JSON.stringify(homedir) + '\n');
