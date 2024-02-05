@@ -8,6 +8,9 @@ import { cp } from './cp.js';
 import { mv } from './mv.js';
 import { rm } from './rm.js';
 import { osFileManager } from './os.js';
+import { hash } from './hash.js';
+import { compress } from './compress.js';
+import { decompress } from './decompress.js';
 import { getUserName } from '../helpers/get-username.js';
 
 export {
@@ -21,5 +24,8 @@ export {
   mv,
   rm,
   osFileManager,
+  hash,
+  compress,
+  decompress,
   getUserName,
 };

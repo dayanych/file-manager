@@ -9,6 +9,5 @@ export const checkPath = (currentPath, newPath, fileName) => {
     updatedPath = path.join(currentPath, newPath);
   }
 
-
   return fileName ? path.join(updatedPath, fileName) : updatedPath;
 };

@@ -12,6 +12,9 @@ import {
   mv,
   rm,
   osFileManager,
+  hash,
+  compress,
+  decompress,
 } from './modules/index.js';
 const {stdin, stdout} = process;
 
@@ -64,7 +67,7 @@ export class FileManager {
         await ls(this.path);
         break;
       case 'cd':
-        this.path = cd(this.path, firstArgument);
+        this.path = await cd(this.path, firstArgument);
         break;
       case 'cat':
         await cat(this.path, firstArgument);
@@ -88,10 +91,13 @@ export class FileManager {
         osFileManager(firstArgument);
         break;
       case 'hash':
+        await hash(this.path, firstArgument);
         break;
-      case 'commpress':
+      case 'compress':
+        await compress(this.path, firstArgument, secondArgument);
         break;
       case 'decompress':
+        await decompress(this.path, firstArgument, secondArgument);
         break;
       case '.exit':
         this.goodbye();
