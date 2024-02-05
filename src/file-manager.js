@@ -87,6 +87,8 @@ export class FileManager {
       case 'os':
         osFileManager(firstArgument);
         break;
+      case 'hash':
+        break;
       case 'commpress':
         break;
       case 'decompress':

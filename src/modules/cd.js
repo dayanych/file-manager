@@ -1,19 +1,12 @@
-import path from 'path';
 import fs from 'fs';
+import { checkPath } from '../helpers/check-path';
 
-export const cd = (currentPath, pathToDirectory) => {
-  if (path.isAbsolute(pathToDirectory)) {
-    if (!fs.existsSync(pathToDirectory)) {
-      throw new Error;
-    }
+export const cd = async (currentPath, pathToDirectory) => {
+  const newPath = checkPath(currentPath, pathToDirectory);
 
-    return pathToDirectory;
-  }
-
-  const newPath = path.join(currentPath, pathToDirectory);
-  if (!fs.existsSync(newPath)) {
-    throw new Error;
-  }
+  await fs.promises.access(pathToDirectory, fs.constants.F_OK, (err) => {
+    if (err) throw new Error('Path does not exist');
+  });
 
   return newPath;
 };
